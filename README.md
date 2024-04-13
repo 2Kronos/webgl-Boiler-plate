@@ -1,1 +1,1 @@
-Starting point all my webgl code
+Starting point for all my webgl code
