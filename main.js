@@ -1,7 +1,11 @@
+import { vsSource } from "./shaders.js";
+import { fsSource } from "./shaders.js";
+
+
 const canvas = document.querySelector('canvas');
 const gl = canvas.getContext('webgl');
-//cnange1 
-//chnage 2
+
+
 if (!gl) {
     throw new Error('WebGL not supported');
 }
@@ -21,14 +25,7 @@ if (!buffer) {
 }
 
 // Vertex shader
-const vsSource = `
-    precision mediump float;
-    attribute vec3 pos;
-    void main() {
-        gl_Position = vec4(pos, 1.0);
-        gl_PointSize = 50.0;
-    }
-`;
+const vertexShaderSourceCode = vsSource;
 const vertexShader = gl.createShader(gl.VERTEX_SHADER);
 gl.shaderSource(vertexShader, vsSource);
 gl.compileShader(vertexShader);
@@ -39,12 +36,7 @@ if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
 }
 
 // Fragment shader
-const fsSource = `
-    precision mediump float;
-    void main() {
-        gl_FragColor = vec4(0.8, 0, 0, 1);
-    }
-`;
+const fragmentShaderSourceCode = fsSource;
 const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
 gl.shaderSource(fragmentShader, fsSource);
 gl.compileShader(fragmentShader);
