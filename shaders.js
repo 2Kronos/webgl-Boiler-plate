@@ -16,4 +16,4 @@ const fsSource = `
     }
 `;
 
-export { vsSource, fsSource };
+export { vsSource, fsSource }

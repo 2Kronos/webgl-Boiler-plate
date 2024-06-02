@@ -7,7 +7,7 @@ const gl = canvas.getContext('webgl');
 
 
 if (!gl) {
-    throw new Error('WebGL not supported');
+    throw new Error("WebGL not supported");
 }
 
 // Vertices
@@ -32,7 +32,9 @@ gl.compileShader(vertexShader);
 
 // Error checking for vertex shader
 if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
-    console.error(`Vertex shader compilation error: ${gl.getShaderInfoLog(vertexShader)}`);
+    console.error(`Vertex shader compilation error:
+     ${gl.getShaderInfoLog(vertexShader)}
+     `);
 }
 
 // Fragment shader
@@ -43,7 +45,9 @@ gl.compileShader(fragmentShader);
 
 // Error checking for fragment shader
 if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-    console.error(`Fragment shader compilation error: ${gl.getShaderInfoLog(fragmentShader)}`);
+    console.error(`Fragment shader compilation error:
+     ${gl.getShaderInfoLog(fragmentShader)}
+     `);
 }
 
 // Program
@@ -54,7 +58,9 @@ gl.linkProgram(program);
 
 // Linking error
 if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    console.error(`Shader program linking error: ${gl.getProgramInfoLog(program)}`);
+    console.error(`Shader program linking error:
+     ${gl.getProgramInfoLog(program)}
+     `);
 }
 
 const positionLocation = gl.getAttribLocation(program, "pos");
